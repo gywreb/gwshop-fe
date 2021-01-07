@@ -1,5 +1,7 @@
+import { Button } from "antd";
+
 const HomePage = () => {
-  return <h1>Welcome to Home!</h1>;
+  return <Button danger>Welcome to Home!</Button>;
 };
 
 export default HomePage;

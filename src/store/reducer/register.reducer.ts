@@ -1,5 +1,10 @@
 import { registerAction } from "../action";
-import { IUser, RegisterAction, RegisterState } from "../types";
+import {
+  IUser,
+  RegisterAction,
+  RegisterState,
+  ValidationError,
+} from "../types";
 
 const initialState: RegisterState = {
   loading: false,
@@ -19,7 +24,11 @@ export default function registerReducer(
       return { ...state, user: action.payload as IUser, loading: false };
     }
     case registerAction.REGISTER_FAILURE: {
-      return { ...state, error: action.payload as string, loading: false };
+      return {
+        ...state,
+        error: action.payload as string | ValidationError,
+        loading: false,
+      };
     }
     case registerAction.REGISTER_RESET: {
       return { ...initialState };

@@ -3,9 +3,13 @@ import { registerAction } from "../action";
 import { IUser } from "./";
 import { RootState } from "./index";
 
+export type ValidationError = {
+  [key: string]: string;
+};
+
 export interface RegisterState {
   loading: boolean;
-  error: string | null;
+  error: string | ValidationError | null;
   user: IUser | null;
 }
 

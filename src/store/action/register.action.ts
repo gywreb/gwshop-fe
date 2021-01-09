@@ -19,7 +19,6 @@ export const register = (user: IUser): RegisterThunk => async (dispatch) => {
     });
     dispatch({ type: REGISTER_SUCCESS, payload: data.data });
   } catch (error) {
-    console.log(error.response);
     dispatch({ type: REGISTER_FAILURE, payload: error.response.data.message });
   }
 };

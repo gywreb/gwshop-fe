@@ -4,7 +4,7 @@ import { useRouter } from "next/dist/client/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerAction } from "../../store/action";
-import { IUser, RootState, ValidationError } from "../../store/types";
+import { RegisterValidationError, RootState } from "../../store/types";
 
 interface FormValues {
   name: string;
@@ -18,11 +18,11 @@ const RegisterForm = () => {
   const loading = useSelector<RootState, boolean>(
     (state) => state.register.loading
   );
-  const error = useSelector<RootState, string | ValidationError | null>(
+  const error = useSelector<RootState, string | RegisterValidationError | null>(
     (state) => state.register.error
   );
-  const user = useSelector<RootState, IUser | null>(
-    (state) => state.register.user
+  const isSuccess = useSelector<RootState, boolean>(
+    (state) => state.register.isSuccess
   );
   const [form] = Form.useForm();
   const router = useRouter();
@@ -40,8 +40,11 @@ const RegisterForm = () => {
   }, [form, error]);
 
   useEffect(() => {
-    if (!error && user) router.push("/register/success");
-  }, [error, user]);
+    if (!error && isSuccess) {
+      router.push("/register/success");
+      dispatch({ type: registerAction.REGISTER_RESET });
+    }
+  }, [error, isSuccess]);
 
   const onFinish = (values: FormValues) => {
     if (values) {

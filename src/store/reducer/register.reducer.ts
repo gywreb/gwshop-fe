@@ -1,15 +1,14 @@
 import { registerAction } from "../action";
 import {
-  IUser,
   RegisterAction,
   RegisterState,
-  ValidationError,
+  RegisterValidationError,
 } from "../types";
 
 const initialState: RegisterState = {
   loading: false,
   error: null,
-  user: null,
+  isSuccess: false,
 };
 
 export default function registerReducer(
@@ -21,12 +20,12 @@ export default function registerReducer(
       return { ...state, loading: true };
     }
     case registerAction.REGISTER_SUCCESS: {
-      return { ...state, user: action.payload as IUser, loading: false };
+      return { ...state, isSuccess: true, loading: false };
     }
     case registerAction.REGISTER_FAILURE: {
       return {
         ...state,
-        error: action.payload as string | ValidationError,
+        error: action.payload as string | RegisterValidationError,
         loading: false,
       };
     }

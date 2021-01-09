@@ -1,16 +1,16 @@
 import { ThunkAction } from "redux-thunk";
 import { registerAction } from "../action";
-import { IUser } from "./";
 import { RootState } from "./index";
+import { IRegisterUser } from "./user.type";
 
-export type ValidationError = {
+export type RegisterValidationError = {
   [key: string]: string;
 };
 
 export interface RegisterState {
   loading: boolean;
-  error: string | ValidationError | null;
-  user: IUser | null;
+  error: string | RegisterValidationError | null;
+  isSuccess: boolean;
 }
 
 export interface RegisterAction {
@@ -19,7 +19,7 @@ export interface RegisterAction {
     | typeof registerAction.REGISTER_SUCCESS
     | typeof registerAction.REGISTER_FAILURE
     | typeof registerAction.REGISTER_RESET;
-  payload?: IUser | string;
+  payload?: IRegisterUser | RegisterValidationError | string;
 }
 
 export type RegisterThunk = ThunkAction<void, RootState, null, RegisterAction>;

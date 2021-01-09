@@ -1,4 +1,5 @@
 import { Button, Card, Col, Row, Typography } from "antd";
+import Link from "next/link";
 import React from "react";
 
 const RegisterSuccess = () => {
@@ -23,9 +24,15 @@ const RegisterSuccess = () => {
             Enjoy your shopping!
           </Typography.Title>
           <div className="centerize pt-3 pb-2">
-            <Button size="large" type="primary" className="letter-spacing br-4">
-              GO TO LOGIN PAGE
-            </Button>
+            <Link href="/login">
+              <Button
+                size="large"
+                type="primary"
+                className="letter-spacing br-4"
+              >
+                GO TO LOGIN PAGE
+              </Button>
+            </Link>
           </div>
         </Card>
       </Col>

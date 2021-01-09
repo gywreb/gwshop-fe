@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Animator from "../src/components/Animator/Animator";
 import { loginAction } from "../src/store/action";
 import { AppPageProps } from "./_app";
 
@@ -21,7 +22,7 @@ const HomePage: NextPage<AppPageProps> = ({ tokenInCookie }) => {
 
   if (tokenInCookie)
     return (
-      <>
+      <Animator motion="fadeIn">
         <Head>
           <title>GWShop | Home</title>
         </Head>
@@ -31,7 +32,7 @@ const HomePage: NextPage<AppPageProps> = ({ tokenInCookie }) => {
         <Link href="/login">
           <Button>SIGN IN</Button>
         </Link>
-      </>
+      </Animator>
     );
   else return <h1>Please wait a moment</h1>;
 };

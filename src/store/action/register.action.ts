@@ -7,7 +7,6 @@ export const REGISTER_FAILURE = "[AUTH] REGISTER FAILURE";
 export const REGISTER_RESET = "[AUTH] REGISTER RESET";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASEURL;
-console.log(baseUrl);
 const url = baseUrl + "/auth/register";
 
 export const register = (user: IRegisterUser): RegisterThunk => async (

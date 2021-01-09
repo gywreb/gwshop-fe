@@ -65,6 +65,7 @@ const LoginForm = () => {
             form={form}
             name="register"
             scrollToFirstError
+            requiredMark={false}
             onFinish={onFinish}
           >
             <Form.Item

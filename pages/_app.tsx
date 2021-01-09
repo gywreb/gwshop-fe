@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import Cookies from "js-cookie";
 import { AppProps } from "next/app";
 import Router from "next/router";
@@ -32,7 +33,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const tokenInCookie = Cookies.get("token");
   return (
     <Provider store={store}>
-      <Component {...pageProps} tokenInCookie={tokenInCookie} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} tokenInCookie={tokenInCookie} />
+      </AnimatePresence>
     </Provider>
   );
 };

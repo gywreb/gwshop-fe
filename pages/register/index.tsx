@@ -7,7 +7,7 @@ const RegisterPage = () => {
   return (
     <div className="main-bg">
       <Head>
-        <title>GWShop | SignUp</title>
+        <title>GWShop | Sign Up</title>
       </Head>
       <Particles id="tsparticles" options={options} />
       <RegisterForm />

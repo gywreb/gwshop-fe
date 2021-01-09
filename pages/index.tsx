@@ -1,23 +1,30 @@
 import { Button } from "antd";
+import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../src/store/types";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../src/store/action";
+import { AppPageProps } from "./_app";
 
-const HomePage = () => {
+const HomePage: NextPage<AppPageProps> = ({ tokenInCookie }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
-  const accessToken = useSelector<RootState, string | null>(
-    (state) => state.login.accessToken
-  );
 
   useEffect(() => {
-    if (!!!accessToken) router.push("/login");
-  }, [accessToken]);
+    if (!!!tokenInCookie) {
+      dispatch({ type: loginAction.LOGIN_RESET });
+      router.push("/login");
+    }
+  }, [tokenInCookie]);
 
-  if (accessToken)
+  if (tokenInCookie)
     return (
       <>
+        <Head>
+          <title>GWShop | Home</title>
+        </Head>
         <Link href="/register">
           <Button>SIGN UP</Button>
         </Link>

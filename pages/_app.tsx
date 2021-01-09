@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
@@ -23,10 +24,15 @@ Router.events.on("routeChangeError", () => {
   NProgress.done();
 });
 
+export interface AppPageProps {
+  tokenInCookie: string;
+}
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const tokenInCookie = Cookies.get("token");
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Component {...pageProps} tokenInCookie={tokenInCookie} />
     </Provider>
   );
 };

@@ -1,19 +1,19 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import Particles from "react-tsparticles";
 import LoginForm from "../src/components/LoginForm/LoginForm";
 import options from "../tsparticle.config.json";
+import { AppPageProps } from "./_app";
 
-const LoginPage = () => {
+const LoginPage: NextPage<AppPageProps> = () => {
   return (
-    <>
+    <div className="main-bg">
       <Head>
-        <title>GWShop | SignIn</title>
+        <title>GWShop | Sign In</title>
       </Head>
-      <div className="main-bg">
-        <Particles id="tsparticles" options={options} />
-        <LoginForm />
-      </div>
-    </>
+      <Particles id="tsparticles" options={options} />
+      <LoginForm />
+    </div>
   );
 };
 

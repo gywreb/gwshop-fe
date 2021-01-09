@@ -1,6 +1,7 @@
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Form, Input, Row, Select, Typography } from "antd";
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerAction } from "../../store/action";
@@ -68,8 +69,14 @@ const RegisterForm = () => {
             level={2}
             className="centerize pt-2 text-primary letter-spacing"
           >
-            REGISTRATION
+            JOIN US NOW!
           </Typography.Title>
+          <Typography.Text className="centerize pb-1">
+            Already a member ?
+            <span className="pl-1">
+              <Link href="/login">Sign in</Link>
+            </span>
+          </Typography.Text>
           <Form
             form={form}
             name="register"

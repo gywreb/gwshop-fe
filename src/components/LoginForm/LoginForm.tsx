@@ -1,6 +1,7 @@
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Form, Input, Row, Typography } from "antd";
-import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../store/action";
@@ -27,13 +28,13 @@ const LoginForm = () => {
           formErrors.push({ name: err, errors: [error[err]] });
         }
         form.setFields(formErrors);
-        dispatch({ type: loginAction.LOGIN_RESET });
       }
+      dispatch({ type: loginAction.LOGIN_RESET });
     }
   }, [form, error]);
 
   useEffect(() => {
-    if (!error && !!accessToken) router.push("/");
+    if (!error && !!accessToken) router.replace("/");
   }, [error, accessToken]);
 
   const onFinish = (values: ILoginUser) => {
@@ -44,7 +45,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Row className="centerize pt-6 pb-6">
+    <Row className="centerize full-view-height">
       <Col xs={23} md={12} xl={7}>
         <Card className="card-shadow br-5">
           <div className="centerize">
@@ -112,6 +113,12 @@ const LoginForm = () => {
               </Button>
             </Form.Item>
           </Form>
+          <Typography.Text className="centerize">
+            Not a member ?
+            <span className="pl-1">
+              <Link href="/register">Join now</Link>
+            </span>
+          </Typography.Text>
         </Card>
       </Col>
     </Row>

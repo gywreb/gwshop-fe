@@ -15,5 +15,5 @@ export interface IUserInfo {
   email: string;
   gender: string;
   isActive: string;
-  photoUrl?: string;
+  photoUrl?: string | null;
 }

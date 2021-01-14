@@ -255,6 +255,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
+"@types/react-loader-spinner@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@types/react-loader-spinner/-/react-loader-spinner-3.1.3.tgz#eb08b0894dae61773df5873e22060c653253e3dc"
+  integrity sha512-sSkLiV2Nas6IZ77sCU6mJXycnTLnnSukE/y8FY5/uTPI90YORYGJOvdfblm3xatT9WSTgvhTEdQAPx3gRF6d3g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-redux@^7.1.15":
   version "7.1.15"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.15.tgz#19075884db94101be762accef924d266a603fb1b"
@@ -696,6 +703,14 @@ babel-plugin-transform-react-remove-prop-types@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
+
+babel-runtime@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -1232,6 +1247,11 @@ copy-to-clipboard@^3.2.0:
   integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
   dependencies:
     toggle-selection "^1.0.6"
+
+core-js@^2.4.0:
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -3765,6 +3785,14 @@ react-is@16.13.1, react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-loader-spinner@^3.1.14:
+  version "3.1.14"
+  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-3.1.14.tgz#2a201f07379c492766175609903c0f2ced57c720"
+  integrity sha512-7V+upnW+RVA/O94LIB/EQLK2uaz/TpZBHG5uNXlOXgvxvALxlxVYeEDmus5Oex2C58fiwrsRvSyu/4VRmLbZ9Q==
+  dependencies:
+    babel-runtime "^6.26.0"
+    prop-types "^15.7.2"
+
 react-redux@^7.2.2:
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
@@ -3853,6 +3881,11 @@ redux@^4.0.0, redux@^4.0.5:
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
+
+regenerator-runtime@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.7"

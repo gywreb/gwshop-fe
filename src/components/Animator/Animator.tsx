@@ -7,60 +7,65 @@ type MotionName = "fadeIn" | "fadeOut" | "slideLeftIn" | "slideRightIn";
 
 interface AnimationControlProps {
   motion: MotionName;
+  duration?: number;
 }
 
 type AnimationVariants = {
   [key in MotionName]: Variants;
 };
 
-const animations: AnimationVariants = {
-  fadeIn: {
-    enter: {
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-  },
-  fadeOut: {
-    enter: {
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-  },
-  slideLeftIn: {
-    enter: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
-    exit: {
-      x: -150,
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-  },
-  slideRightIn: {
-    enter: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
-    exit: {
-      x: 150,
-      opacity: 0,
-      transition: { duration: 0.3 },
-    },
-  },
-};
-
 const Animator: React.FC<AnimationControlProps> = (props) => {
+  const { duration } = props;
+  const defaultSetting = {
+    duration: 0.3,
+  };
+  const animations: AnimationVariants = {
+    fadeIn: {
+      enter: {
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+    fadeOut: {
+      enter: {
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+    slideLeftIn: {
+      enter: {
+        x: 0,
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        x: -150,
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+    slideRightIn: {
+      enter: {
+        x: 0,
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        x: 150,
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+  };
+
   return (
     <motion.div
       initial="exit"

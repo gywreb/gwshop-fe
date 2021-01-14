@@ -8,6 +8,10 @@ $primary: #00c2cb;
   height: 100%;
 }
 
+#nprogress .bar {
+  background: $primary;
+}
+
 *,
 ::after,
 ::before {
@@ -44,6 +48,26 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+.p-absolute {
+  position: absolute;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-between {
+  justify-content: space-between;
+}
+
+.a-center {
   align-items: center;
 }
 
@@ -107,5 +131,13 @@ body {
   }
   .p-#{$i} {
     padding: 8px * $i !important;
+  }
+}
+
+.app {
+  &-header {
+    background-color: #fff;
+    box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+      0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
   }
 }

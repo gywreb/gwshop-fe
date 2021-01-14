@@ -1,17 +1,22 @@
+import AuthService from "../../services/auth.service";
 import { loginAction } from "../action";
-import { getToken } from "../action/getToken";
 import {
+  IUserInfo,
   LoginAction,
   LoginResponseData,
   LoginState,
   LoginValidationError,
 } from "../types";
 
+const authService = new AuthService();
+
+authService.getAuth();
+
 const initialState: LoginState = {
   loading: false,
   error: null,
   loggedUser: null,
-  accessToken: getToken(),
+  accessToken: authService.token,
 };
 
 export default function loginReducer(
@@ -36,6 +41,13 @@ export default function loginReducer(
         ...state,
         loading: false,
         error: action.payload as LoginValidationError | string,
+      };
+    }
+    case loginAction.GET_CURRENT_USER: {
+      return {
+        ...state,
+        loading: false,
+        loggedUser: action.payload as IUserInfo,
       };
     }
     case loginAction.LOGIN_RESET: {

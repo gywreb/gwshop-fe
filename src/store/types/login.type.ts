@@ -24,8 +24,9 @@ export interface LoginAction {
     | typeof loginAction.LOGIN_REQUEST
     | typeof loginAction.LOGIN_SUCCESS
     | typeof loginAction.LOGIN_FAILURE
-    | typeof loginAction.LOGIN_RESET;
-  payload?: LoginResponseData | LoginValidationError | string;
+    | typeof loginAction.LOGIN_RESET
+    | typeof loginAction.GET_CURRENT_USER;
+  payload?: LoginResponseData | LoginValidationError | string | IUserInfo;
 }
 
 export type LoginThunk = ThunkAction<void, RootState, null, LoginAction>;

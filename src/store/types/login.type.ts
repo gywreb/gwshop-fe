@@ -9,6 +9,7 @@ export interface LoginValidationError {
 
 export interface LoginState {
   loading: boolean;
+  pendingUser: boolean;
   error: LoginValidationError | string | null;
   loggedUser: IUserInfo | null;
   accessToken: string | null;
@@ -25,7 +26,8 @@ export interface LoginAction {
     | typeof loginAction.LOGIN_SUCCESS
     | typeof loginAction.LOGIN_FAILURE
     | typeof loginAction.LOGIN_RESET
-    | typeof loginAction.GET_CURRENT_USER;
+    | typeof loginAction.GET_CURRENT_USER
+    | typeof loginAction.GET_CURRENT_USER_REQUEST;
   payload?: LoginResponseData | LoginValidationError | string | IUserInfo;
 }
 

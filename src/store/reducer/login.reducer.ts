@@ -14,6 +14,7 @@ authService.getAuth();
 
 const initialState: LoginState = {
   loading: false,
+  pendingUser: false,
   error: null,
   loggedUser: null,
   accessToken: authService.token,
@@ -43,10 +44,16 @@ export default function loginReducer(
         error: action.payload as LoginValidationError | string,
       };
     }
+    case loginAction.GET_CURRENT_USER_REQUEST: {
+      return {
+        ...state,
+        pendingUser: true,
+      };
+    }
     case loginAction.GET_CURRENT_USER: {
       return {
         ...state,
-        loading: false,
+        pendingUser: false,
         loggedUser: action.payload as IUserInfo,
       };
     }

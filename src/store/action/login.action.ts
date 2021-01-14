@@ -7,6 +7,7 @@ export const LOGIN_SUCCESS = "[AUTH] LOGIN SUCCESS";
 export const LOGIN_FAILURE = "[AUTH] LOGIN FAILURE";
 export const LOGIN_RESET = "[AUTH] LOGIN RESET";
 export const GET_CURRENT_USER = "[AUTH] GET CURRENT USER";
+export const GET_CURRENT_USER_REQUEST = "[AUTH] GET CURRENT REQUEST";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASEURL;
 const url = baseUrl + "/auth/login";
@@ -36,7 +37,7 @@ export const login = (user: ILoginUser): LoginThunk => async (dispatch) => {
 };
 
 export const getCurrentUser = (): LoginThunk => async (dispatch) => {
-  dispatch({ type: LOGIN_REQUEST });
+  dispatch({ type: GET_CURRENT_USER_REQUEST });
   try {
     const { data } = await axios({
       url: baseUrl + "/auth/current",

@@ -11,6 +11,7 @@ export interface RegisterState {
   loading: boolean;
   error: string | RegisterValidationError | null;
   isSuccess: boolean;
+  isConfirmed: boolean;
 }
 
 export interface RegisterAction {
@@ -18,7 +19,8 @@ export interface RegisterAction {
     | typeof registerAction.REGISTER_REQUEST
     | typeof registerAction.REGISTER_SUCCESS
     | typeof registerAction.REGISTER_FAILURE
-    | typeof registerAction.REGISTER_RESET;
+    | typeof registerAction.REGISTER_RESET
+    | typeof registerAction.REGISTER_SUCCESS_CONFIRM;
   payload?: IRegisterUser | RegisterValidationError | string;
 }
 

@@ -9,6 +9,7 @@ const initialState: RegisterState = {
   loading: false,
   error: null,
   isSuccess: false,
+  isConfirmed: false,
 };
 
 export default function registerReducer(
@@ -28,6 +29,9 @@ export default function registerReducer(
         error: action.payload as string | RegisterValidationError,
         loading: false,
       };
+    }
+    case registerAction.REGISTER_SUCCESS_CONFIRM: {
+      return { ...state, isConfirmed: true };
     }
     case registerAction.REGISTER_RESET: {
       return { ...initialState };

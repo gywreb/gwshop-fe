@@ -5,6 +5,7 @@ export const REGISTER_REQUEST = "[AUTH] REGISTER REQUEST";
 export const REGISTER_SUCCESS = "[AUTH] REGISTER SUCCESS";
 export const REGISTER_FAILURE = "[AUTH] REGISTER FAILURE";
 export const REGISTER_RESET = "[AUTH] REGISTER RESET";
+export const REGISTER_SUCCESS_CONFIRM = "[AUTH] REGISTER SUCCESS CONFIRM";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASEURL;
 const url = baseUrl + "/auth/register";

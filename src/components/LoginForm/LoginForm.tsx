@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction } from "../../store/action";
+import { loginAction, registerAction } from "../../store/action";
 import { ILoginUser, LoginValidationError, RootState } from "../../store/types";
 
 const LoginForm = () => {
@@ -18,8 +18,14 @@ const LoginForm = () => {
   const accessToken = useSelector<RootState, string | null>(
     (state) => state.login.accessToken
   );
+
   const [form] = Form.useForm();
   const router = useRouter();
+
+  useEffect(() => {
+    dispatch({ type: registerAction.REGISTER_RESET });
+  }, []);
+
   useEffect(() => {
     if (error) {
       if (!(typeof error === "string")) {
@@ -31,7 +37,7 @@ const LoginForm = () => {
       }
       dispatch({ type: loginAction.LOGIN_RESET });
     }
-  }, [form, error]);
+  }, [dispatch, form, error]);
 
   useEffect(() => {
     if (!error && !!accessToken) router.replace("/");

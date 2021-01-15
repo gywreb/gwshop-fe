@@ -11,9 +11,12 @@ export interface ILoginUser {
 }
 
 export interface IUserInfo {
+  _id: string;
   name: string;
   email: string;
   gender: string;
   isActive: string;
+  createdAt: string;
+  updatedAt: string;
   photoUrl?: string | null;
 }

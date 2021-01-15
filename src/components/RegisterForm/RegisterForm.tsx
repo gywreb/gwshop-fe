@@ -43,7 +43,7 @@ const RegisterForm = () => {
   useEffect(() => {
     if (!error && isSuccess) {
       router.push("/register/success");
-      dispatch({ type: registerAction.REGISTER_RESET });
+      dispatch({ type: registerAction.REGISTER_SUCCESS_CONFIRM });
     }
   }, [error, isSuccess]);
 

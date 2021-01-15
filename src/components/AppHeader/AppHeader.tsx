@@ -1,11 +1,13 @@
-import { Button, Col, Layout, Row } from "antd";
+import { Button, Col, Layout, Row, Typography } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "../../store/action";
 import { IUserInfo, RootState } from "../../store/types";
 import Animator from "../Animator/Animator";
 
 const AppHeader = () => {
+  const dispatch = useDispatch();
   const user = useSelector<RootState, IUserInfo | null>(
     (state) => state.login.loggedUser
   );
@@ -27,10 +29,17 @@ const AppHeader = () => {
               </Col>
               <Col>
                 {user ? (
-                  <h3>Welcome back {user.name}</h3>
+                  <>
+                    <Typography.Text>Welcome back {user.name}</Typography.Text>
+                    <Button
+                      className="ml-2"
+                      onClick={() => dispatch(loginAction.logout())}
+                    >
+                      SIGN OUT
+                    </Button>
+                  </>
                 ) : (
                   <>
-                    {" "}
                     <Link href="/register">
                       <Button>SIGN UP</Button>
                     </Link>

@@ -16,6 +16,12 @@ class AuthService {
       delete axios.defaults.headers.common["Authorization"];
     }
   }
+
+  deleteAuth() {
+    this.token = null;
+    Cookies.remove("token");
+    delete axios.defaults.headers.common["Authorization"];
+  }
 }
 
 export default AuthService;

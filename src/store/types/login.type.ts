@@ -27,7 +27,8 @@ export interface LoginAction {
     | typeof loginAction.LOGIN_FAILURE
     | typeof loginAction.LOGIN_RESET
     | typeof loginAction.GET_CURRENT_USER
-    | typeof loginAction.GET_CURRENT_USER_REQUEST;
+    | typeof loginAction.GET_CURRENT_USER_REQUEST
+    | typeof loginAction.LOGOUT;
   payload?: LoginResponseData | LoginValidationError | string | IUserInfo;
 }
 

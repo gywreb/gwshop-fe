@@ -62,6 +62,13 @@ export default function loginReducer(
         ...initialState,
       };
     }
+    case loginAction.LOGOUT: {
+      authService.deleteAuth();
+      return {
+        ...initialState,
+        accessToken: null,
+      };
+    }
     default: {
       return state;
     }

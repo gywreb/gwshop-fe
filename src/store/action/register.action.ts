@@ -18,6 +18,10 @@ export const register = (user: IRegisterUser): RegisterThunk => async (
       url,
       method: "POST",
       data: user,
+      auth: {
+        username: process.env.NEXT_PUBLIC_BASICAUTH_USER || "",
+        password: process.env.NEXT_PUBLIC_BASICAUTH_PASSWORD || "",
+      },
     });
     if (data) dispatch({ type: REGISTER_SUCCESS });
   } catch (error) {

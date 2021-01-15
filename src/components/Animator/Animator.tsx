@@ -1,12 +1,20 @@
 import { motion, Variants } from "framer-motion";
 
-type MotionName = "fadeIn" | "fadeOut" | "slideLeftIn" | "slideRightIn";
+type MotionName =
+  | "fadeIn"
+  | "fadeOut"
+  | "slideLeftIn"
+  | "slideRightIn"
+  | "slideDownIn"
+  | "slideUpIn";
 //   | "slideLeftOut"
 //   | "slideRightOut"
 //   | "scaleIn";
 
 interface AnimationControlProps {
   motion: MotionName;
+  visible?: boolean;
+  scollPos?: number;
   duration?: number;
 }
 
@@ -60,6 +68,30 @@ const Animator: React.FC<AnimationControlProps> = (props) => {
       },
       exit: {
         x: 150,
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+    slideDownIn: {
+      enter: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        y: -150,
+        opacity: 0,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+    },
+    slideUpIn: {
+      enter: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: duration || defaultSetting.duration },
+      },
+      exit: {
+        y: 150,
         opacity: 0,
         transition: { duration: duration || defaultSetting.duration },
       },

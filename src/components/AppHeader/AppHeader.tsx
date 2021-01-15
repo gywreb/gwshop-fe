@@ -14,14 +14,14 @@ const AppHeader = () => {
   }, [scrollPos]);
 
   return (
-    <>
+    <Animator motion="fadeIn">
       <Animator motion="fadeIn">
         <LayoutHeader />
       </Animator>
       <ConditionalAnimator motion="fadeIn" visible={visible}>
         <LayoutHeader fixed />
       </ConditionalAnimator>
-    </>
+    </Animator>
   );
 };
 
